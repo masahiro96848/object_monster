@@ -41,13 +41,11 @@ while(!$isFinishFlg) {
 
     // 攻撃(味方)
     foreach($members as $member) {
-        $enemyIndex = rand(0, count($enemies) - 1);  // 添字は0から始まるので -1する。
-        $enemy = $enemies[$enemyIndex];
         // 白魔道士(whiteMage)の場合、味方のオブジェクトを渡す。
         if(get_class($member) == "WhiteMage") {
-            $member->doAttackWhiteMage($enemy, $member);
+            $member->doAttackWhiteMage($enemies, $members);
         } else {
-            $member->doAttack($enemy);
+            $member->doAttack($enemies);
         }
         echo "\n";
     }
@@ -55,9 +53,7 @@ while(!$isFinishFlg) {
 
     // 攻撃(敵)
     foreach($enemies as $enemy) {
-        $memberIndex = rand(0, count($members) - 1); // 添字は０から始まるので, -1する
-        $member = $members[$memberIndex];
-        $enemy->doAttack($member);
+        $enemy->doAttack($members);
         echo "\n";
     }
     echo "\n";
@@ -96,6 +92,7 @@ while(!$isFinishFlg) {
 }
 
 echo "==== 戦闘終了 \n\n";
+
 // 現在のHPの表示
 foreach($members as $member) {
     echo $member->getName() . ":" . $member->getHitPoint() . "/" . $member::MAX_HITPOINT . "\n";
