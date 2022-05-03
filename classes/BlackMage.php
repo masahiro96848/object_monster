@@ -10,7 +10,7 @@ class BlackMage extends Human
 
     public function __construct($name)
     {
-        parent::__construct($name, $this->hisPoint, $this->attackPoint);
+        parent::__construct($name, $this->hitPoint, $this->attackPoint);
     }
 
     public function doAttack($enemy)
