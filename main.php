@@ -2,6 +2,7 @@
 
 // echo '処理の始まり! \n\n';
 // ファイルのロード
+require_once('./classes/Lives.php');
 require_once('./classes/Human.php');
 require_once('./classes/Enemy.php');
 require_once('./classes/Brave.php');
